@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Popup</title>
+  <link type="text/css" rel="stylesheet" href="popup.css" />
+</head>
+<body>
+<form id="popup">
+  <div class="popup-content">
+    <img id="icon" width="60" height="60" alt="" draggable="false">
+    <input id="image" type="file" method="post" enctype="multipart/form-data" accept="image/*">
+    <div class="input-form">
+      <span style="">网站</span><input type="text" id="name" />
+      <span style="">地址</span><input type="text" id="url" />
+      <span style="">图标</span><input type="text" id="icon-input" />
+      <span style="">分组</span><input type="text" id="group" />
+      <img src="others.svg" alt="" width="20" height="20" id="more" draggable="false"/>
+      <div class="popover" id="popover">
+        <div class="arrow-down"></div><ul id="select"></ul>
+      </div>
+    </div>
+  </div>
+  <button id="submit">确定</button>
+</form>
+</body>
+<script type="application/javascript" src="popup.js"></script>
+</html>

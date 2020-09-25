@@ -1,0 +1,37 @@
+<div class="item-group">
+  <div id="searchbar" (mouseenter)="enterGroup()" (mouseleave)="leaveGroup(inputElement)">
+    <div class="form-item" [class.open-drop]="isDropList" [class.open-cache]="isFocus&&keywords.length">
+      <div class="mode-btn" (click)="showDrop(!this.isDropList)">
+        <img [src]="currMode?.local" alt="" width="24" draggable="false">
+      </div>
+      <form action="" (ngSubmit)="search()">
+        <input id="searchInput" name="search" type="text" autocomplete="off" [(ngModel)]="value" (focus)="showDrop(false)" (blur)="inputBlur()"
+               (input)="inputKeyword()" #inputElement/>
+      </form>
+      <div class="search-icon" (click)="search()">
+        <img src="assets/icons/search.svg" alt="" width="20" draggable="false">
+      </div>
+    </div>
+    <div class="drop-shell" *ngIf="isDropList">
+      <div class="drop-list" [class.show-list]="isShell">
+        <div class="drop-item" *ngFor="let mode of modes">
+          <label (click)="select(mode)" [class.selected]="currMode.mode === mode.mode">
+            <div class="icon-shadow"><img [src]="mode?.local" alt="" width="24" draggable="false"></div>
+            <span>{{mode.name}}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="cache-keyword" *ngIf="isFocus&&keywords.length">
+      <ng-container *ngFor="let k of keywords; let i=index">
+        <label *ngIf="i < 10">
+          <span (click)="selectKeyword(k, inputElement)">
+          {{k?.value}}
+          <img src="assets/icons/close.svg" alt="" width="16" (click)="remove($event, k)" draggable="false">
+          </span>
+        </label>
+      </ng-container>
+    </div>
+  </div>
+</div>

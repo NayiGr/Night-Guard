@@ -1,0 +1,30 @@
+<div id="content" [class.secondary]="!isImage">
+  <div class="date" [hidden]="isHideTime">
+    <span>{{date | date: 'HH:mm:ss'}}</span>
+    <span>{{date | date: 'yyyy/MM/dd'}}</span>
+  </div>
+
+  <div class="setting" [hidden]="isHideSet" [style.opacity]="isAll ? 0 : 1" (mouseleave)="setStatus('leave')" (mouseenter)="setStatus('enter')">
+    <div class="setting-item">
+      <div *ngFor="let dl of getDesktopLists()" class="shadow" (click)="setFun(dl, dl.name)" [title]="dl.type"
+            [class.disable]="dl.status" [class.selected]="dl.check">
+        <img [alt]="dl.type" [src]="dl.local" *ngIf="dl.display" width="22" draggable="false"/>
+
+        <input type="file" method="post" enctype="multipart/form-data" accept="image/*" [title]="dl.type"
+               *ngIf="dl.name === 'background'" (change)="setBackground($event)" [style.top]="0">
+        <input type="file" method="post" enctype="multipart/form-data" accept="application/json"
+               *ngIf="dl.name === 'import'" (change)="imports($event)">
+        <span class="trash-text" *ngIf="dl.name === 'delete' && dl.check">{{count}}</span>
+      </div>
+    </div>
+    <div class="shadow">
+      <img alt="切换设置" src="assets/icons/setting.svg" id="setting" draggable="false" (click)="setReplace()"
+           [class.disable]="isDisableSet" [class.active]="isTouchSet"  [class.inactive]="!isTouchSet" width="22" />
+    </div>
+  </div>
+
+  <searchbar-page class="ng-page"></searchbar-page>
+  <navigation-page class="ng-page" (outNav)="inNav($event)" [inDesktop]="outDesktop"></navigation-page>
+  <edit-page class="ng-page" *ngIf="isBackdrop" (outEdit)="inEdit($event)"></edit-page>
+  <alert-page *ngIf="isDelayAlert" [style.opacity]="isAlert ? 1 : 0"></alert-page>
+</div>

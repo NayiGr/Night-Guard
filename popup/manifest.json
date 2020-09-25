@@ -1,0 +1,23 @@
+{
+  "author": "守夜人",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "description": "一款简约简洁的新标签页",
+  "icons": {
+    "128": "assets/icons/favicon.ico",
+    "16": "assets/icons/favicon.ico",
+    "48": "assets/icons/favicon.ico"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0jq/ZWH/DG4x1Q+1QeQp3KDr2BJUfo40WfIX/EL7O3COVr0nYy+ONBEVAFKMZ4nbja90+Pix2GUhTeBg/drLKYu38AqUF39ZEksi/ZArZFF3jTyonojmGdY8bFeUkLmK5QjhRGIjSuu68JRPs9xFj2ko6r3uER7yJOcZB4y7MINXemUKUot4mfRpp53k6JEYANjOljD77M0qBQ8KOk7rCIIpQWBMd+hO16ta1beaSa5U5muwV9IQfhbgpF/hcsLRmBjjDvF7lseB8bWBSWVei9rW54zHMF+n/RPPSuV8UUZK4vmZy8uihoY+a3nt/VutnfIRnot31Ebb4puws0/gQQIDAQAB",
+  "manifest_version": 2,
+  "name": "Night Watch",
+  "version": "2.0.1",
+  "permissions": [ "tabs", "storage", "background" ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "browser_action": {
+    "default_icon": "assets/icons/favicon.ico",
+    "default_title": "Popup",
+    "default_popup": "popup/popup.html"
+  }
+}

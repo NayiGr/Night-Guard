@@ -1,0 +1,135 @@
+:host {
+  #content {
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    contain: size style;
+    overflow: auto;
+    visibility: inherit;
+    user-select: none;
+
+    &.secondary {
+      background-color: #000410;
+    }
+  }
+
+  div.date {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    filter: drop-shadow(0px 2px 2px #c0c0c0);
+    color: #eee;
+    text-align: center;
+    font-weight: bolder;
+
+    span {
+      font-family: "微软雅黑", serif;
+      display: block;
+
+      &:first-child {
+        font-size: 45px;
+      }
+
+      &:last-child {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .disable {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  div.setting {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    width: 50px;
+    overflow: hidden;
+    transition: .5s;
+    filter: drop-shadow(1px 1px 10px rgba(51, 51, 51, 1));
+
+    img, input {
+      display: block;
+      font-size: 22px;
+      color: #f4f5f8;
+    }
+
+    div.setting-item {
+      transition: .3s all;
+    }
+
+    div.shadow {
+      position: relative;
+      transition: .5s all;
+
+      &:hover {
+        filter: drop-shadow(0px 4px 4px rgba(255, 255, 255, .6));
+      }
+
+      &.selected {
+        filter: drop-shadow(0px 4px 4px rgba(255, 255, 255, 1));
+      }
+
+      img {
+        transform: translateX(-50px);
+        margin: 0 auto 16px;
+        filter: drop-shadow(50px 0px 0px #f4f5f8);
+        z-index: 101;
+
+        &#setting {
+          transform: rotateZ(0deg);
+
+          &.active {
+            transform: rotateZ(180deg);
+            transition: 1s all;
+          }
+
+          &.inactive {
+            transform: rotateZ(0deg);
+            transition: 1s all;
+          }
+        }
+      }
+
+      input {
+        width: 22px;
+        height: 22px;
+        opacity: 0;
+        position: absolute;
+        bottom: 0;
+        right: 14px;
+        filter:alpha(opacity=0);
+      }
+
+      .trash-text {
+        text-align: center;
+        display: block;
+        width: 18px;
+        font-size: 12px;
+        position: absolute;
+        bottom: 0;
+        right: 16px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #333;
+        font-weight: bold;
+      }
+    }
+  }
+
+  edit-page {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+}

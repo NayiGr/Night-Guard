@@ -1,0 +1,27 @@
+<div class="backdrop-list">
+  <div class="edit-list" [class.show]="isBackdrop">
+    <div class="edit-group">
+      <div class="edit-item">
+        <label>分组</label><input class="edit-input" [(ngModel)]="currGroup.name" />
+      </div>
+      <div class="edit-item">
+        <label>地址</label><input class="edit-input" [(ngModel)]="website.url" (ngModelChange)="inputUrl($event)" />
+      </div>
+      <div class="edit-item">
+        <label>名称</label><input class="edit-input" [(ngModel)]="website.name" (ngModelChange)="ableSave()" />
+      </div>
+      <div class="edit-item">
+        <label>图标</label><input class="edit-input" [(ngModel)]="website.icon" (ngModelChange)="ableSave()" />
+      </div>
+      <div class="edit-item input-file">
+        <img alt="" [src]="website.icon? website.icon : 'assets/icons/picture.svg'" width="80" height="80" id="favicon" draggable="false" />
+        <input type="file" method="post" enctype="multipart/form-data" accept="image/*" (change)="change($event)">
+      </div>
+      <div class="edit-item edit-btn">
+        <label (click)="save(true, website)" [class.disabled]="isToast">确定</label>
+        <label (click)="save(false)">取消</label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="backdrop" (click)="save(false)"></div>

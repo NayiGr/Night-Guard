@@ -1,0 +1,21 @@
+<div class="masonry" [style.width.px]="styleWidth">
+  <div class="nav-list" *ngFor="let group of websites" id="list_{{group.id}}" [style.top.px]="group.top" [style.left.px]="group.left">
+    <div class="nav-group">
+      <label class="group-title">
+        <span *ngIf="!isEdit">{{group.title}}</span><input *ngIf="isEdit" [(ngModel)]="group.title" />
+      </label>
+      <div class="nav-row">
+        <div class="nav-col sortable-col" *ngFor="let website of group['websites']; let i=index" (click)="getActive(website, group)"
+             [class.hidden-col]="isEdit&&i === group['websites'].length - 1" [class.delete-col]="website.isDelete" id="item_{{website.id}}">
+          <label [class.show-pic]="website.icon" class="nav-label">
+            <img class="nav-icon" *ngIf="website.icon" [src]="website.icon" alt="" width="20" draggable="false"/>
+            <span [class.only-span]="!website.icon">{{website.name}}</span>
+          </label>
+        </div>
+        <div class="nav-col delete-col add-col" *ngIf="isEdit" (click)="getActive(group['websites'][group['websites'].length-1], group)">
+          <label><img src="assets/icons/add.svg" alt="" width="16" draggable="false"></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

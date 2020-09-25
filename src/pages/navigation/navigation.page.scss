@@ -1,0 +1,131 @@
+:host {
+  .masonry {
+    height: calc(100vh - 126px - 66px);
+    overflow-y: scroll;
+    margin: 50px auto 0;
+    position:relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    div.nav-list {
+      width: 450px;
+      display: block;
+      margin: 0 30px;
+      padding-bottom: 16px;
+      position: absolute;
+      filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
+      background-color: transparent;
+      contain: content;
+      list-style-type: none;
+      box-sizing: border-box;
+
+      &:last-child {
+        margin-bottom: 100px;
+      }
+
+      div.nav-group {
+        box-sizing: border-box;
+        visibility: inherit;
+
+        label.group-title {
+          padding-left: 16px;
+          color: #fafafa;
+          text-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+          display: flex;
+
+          span, input {
+            height: 45px;
+            line-height: 45px;
+            width: 140px;
+            display: block;
+            font-size: 17px;
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+          }
+
+          input {
+            background-color: transparent;
+            border: 0;
+            outline: none;
+            color: #fafafa;
+            text-shadow: 0 4px 4px rgba(255, 255, 255, 0.5);
+          }
+        }
+      }
+
+      div.nav-row{
+        display: flex;
+        flex-wrap: wrap;
+        visibility: inherit;
+
+        div.nav-col {
+          display: flex;
+          flex-basis: 0;
+          flex-grow: 1;
+          max-width: 140px !important;
+          height: 45px;
+          background-color: #fff;
+          padding: 0;
+          margin: 0 5px 10px 5px;
+          border-radius: 3px;
+          text-align: center;
+          visibility: inherit;
+          min-height: 1px;
+          cursor: pointer;
+          touch-action: manipulation;
+
+          label.nav-label {
+            display: flex;
+            height: 45px;
+            line-height: 45px;
+            width: 140px;
+
+            &.show-pic {
+              position: relative;
+              text-align: left;
+            }
+
+            img.nav-icon {
+              width: 20px;
+              height: 20px;
+              text-align: center;
+              padding: 13px 8px;
+            }
+
+            span {
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              color: #333;
+              padding-right: 8px;
+              font-size: 17px;
+
+              &.only-span {
+                padding: 0 16px;
+              }
+            }
+          }
+
+          &.delete-col, &:active {
+            opacity: 0.5;
+          }
+
+          &.hidden-col {
+            display: none;
+          }
+        }
+
+        div.add-col {
+          width: 140px;
+
+          label {
+            margin: 0 auto;
+            line-height: 45px;
+            display: inline-flex;
+          }
+        }
+      }
+    }
+  }
+}

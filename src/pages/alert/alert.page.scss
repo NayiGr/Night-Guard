@@ -1,0 +1,20 @@
+:host {
+  div.alert-main {
+    position: relative;
+    margin: 0 auto;
+    z-index: 200;
+    height: 100vh;
+    display: flex;
+
+    div.alert-content {
+      padding: 20px 30px;
+      background-color: rgba(0, 0, 0, .5);
+      color: #fff;
+      font-size: 14px;
+      margin: 0 auto;
+      filter: drop-shadow(1px 1px 10px rgba(51, 51, 51, 1));
+      align-self: center;
+      border-radius: 2px;
+    }
+  }
+}
