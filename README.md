@@ -1,7 +1,7 @@
   
 
 <h1>
-<img src="https://raw.githubusercontent.com/NayiGr/Night-Watch/master/src/assets/icons/favicon.ico" width="30"/>&nbsp;&nbsp;Night Watch</h1>
+<img src="https://raw.githubusercontent.com/NayiGr/Night-Watch/master/src/assets/icons/favicon.ico" width="25"/>&nbsp;&nbsp;Night Watch</h1>
 一款简约、操作简单的Chrome扩展插件导航
 <br />
 
