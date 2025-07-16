@@ -11,7 +11,8 @@ function popup() {
   } else {
     websites = [];
   }
-  chrome.tabs.getSelected(null, function (tab) {
+  chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+    const tab = tabs[0];
     url = document.getElementById('url');
     name = document.getElementById('name');
     icon = document.getElementById('icon');
